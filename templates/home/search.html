@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %} Search Results {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+
+
+
+{% block css %}
+    .col-md-3
+    {
+    display: inline-block;
+    margin-left:-4px;
+    }
+    .carousel-indicators .active {
+    background-color: blue;
+    }
+    .col-md-3 img{
+    width: 170px;
+    height: 200px;
+    }
+    body .carousel-indicator li{
+    background-color: blue;
+    }
+    body .carousel-indicators{
+    bottom: -40px;
+    }
+    .carousel-indicators li {
+    
+    
+        background-color: #7270fc;
+    }
+    body .carousel-control-prev-icon,
+    body .carousel-control-next-icon{
+    background-color: blue;
+    }
+    .carousel-control-prev,
+    .carousel-control-next{
+    top: auto;
+    bottom: auto;
+    padding-top: 222px;
+    }
+    body .no-padding{
+    padding-left: 0,
+    padding-right: 0;
+    }
+{% endblock %}
+
+
+
+{% block body %}
+<div class="container my-3">
+    {% for message in messages  %}
+      
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              <strong>Message : </strong> {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        
+      
+    {% endfor %}
+
+    <h2>Search results : </h2>
+    {% if allProds|length < 1 or query|length < 1 %}
+
+    Your search query : <b>{{query}}</b> did not match any product :( <br>
+    Suggestions:
+    <ul>
+    <li>Make sure that all words are spelled correctly.</li>
+    <li>Try more general keywords.</li>
+    <li> Try fewer keywords.</li>
+    <li> Try different keywords.</li>
+    </li>
+    </ul>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+    {% endif %}
+
+
+
+
+{% load static %}
+<div class="container">
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
+    <div class="row">
+        <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+                {% for i in range %}
+                <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+                {% endfor %}
+            </ul>
+            <div class="container carousel-inner no-padding">
+                <div class="carousel-item active">
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card align-items-center" style="width: 18rem;">
+                            <img src='{{i.image}}' class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                                <p class="card-text">{{i.ad_titel|slice:"0:53"}}...</p>
+                                <h6 class="card-title" >Price: <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                                <span id="divpr{{i.id}}" class="divpr">
+                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+                                </span>
+                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+                </div>
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- left and right controls for the slide -->
+        <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+
+
+{% endblock %}
+    
+

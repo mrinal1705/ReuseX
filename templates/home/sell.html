@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title%} Vega - Sell page.. {% endblock %}
+{% block body %}
+
+{% for message in messages  %}
+    <div class="container my-3">
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message : </strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    </div>
+{% endfor %}
+
+
+
+<div class="center" style="margin-left: 400px; margin-right: 400px;">
+    <form method="post" action="/sell" id="trackerForm" enctype="multipart/form-data">{% csrf_token %}
+       <div class="col my-4">
+          <h2>Choose a catogery</h2>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="catogery">Catogery</label>
+            </div>
+            <select class="custom-select" id="catogery" name = 'catogery'>
+              <option selected></option>
+              <option value="Fashion">Fashion</option>
+              <option value="Study Materials">Study Materials</option>
+              <option value="Mobiles and Laptops">Mobiles and Laptops</option>
+              <option value="Electronics and Appliances">Electronics and Appliances</option>
+              <option value="Bikes">Bikes</option>
+              <option value="Sports, Gym and Musical Materials">Sports, Gym and Musical Materials</option>
+              <option value="Room decors">Room decors</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Apartments and rooms">Apartments and rooms</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="container my-3">
+
+
+                <div class="form-group">
+                    <label for="name">Ad-Titel</label>
+                    <input type="text" class="form-control" id="ad_titel" name='ad_titel' placeholder="Give the title of your product (book's name/equipment's name etc">
+                  </div>
+
+                <div class="form-group">
+                    <label for="desc">Description of product</label>
+                    <textarea class="form-control" id="desc_product" name='desc_product' rows="5" placeholder="Must Include Condition, Features etc of your product, if possible also include Date of Purchase."></textarea>
+                  </div>
+
+                <div class="form-group">
+                  <label for="name">Set a Price</label>
+                  <input type="tel" class="form-control" id="price" name='price' placeholder="Rs.">
+                </div>
+
+                <h2>Contact Details</h2>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+                </div>
+                <div class="form-group">
+                  <label for="name">Email</label>
+                  <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+                </div>
+        
+                <div class="form-group">
+                  <label for="name">Whatsapp Number</label>
+                  <input type="tel" class="form-control" id="wa_phone" name='wa_phone' placeholder="Enter Your Whatsapp Number">
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Contact Number</label>
+                  <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number">
+                </div>
+
+              <h2>Upload an image</h2>
+
+              <br>
+
+
+                <input type = "file" name = "myfile"><br>
+
+
+              <br>
+              
+        
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+            <br>
+        </form>
+        
+      </div>
+    </div>
+   </div>
+  </div>
+        
+{% endblock %}
