@@ -22,3 +22,12 @@ def index(request):
         allProds.append([prod, range(1, nSlides), nSlides])
     params = {'allProds':allProds}
     return render(request, 'shop/index.html', params)
+
+
+
+def productview(request, myid):
+
+    # Fetch the product using the id
+    product = Product.objects.filter(id=myid)
+    return render(request, 'shop/prodview.html', {'product':product[0]})
+

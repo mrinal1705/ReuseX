@@ -1,6 +1,7 @@
 from django.db import models
 
-from django.utils import timezone
+
+from django.utils.timezone import now
 
 # Create your models here.
 class Product(models.Model):
@@ -13,7 +14,7 @@ class Product(models.Model):
     desc_product = models.CharField(max_length=300)
     wa_phone = models.CharField(max_length=70, default="")
     phone = models.CharField(max_length=70, default="")
-    pub_date = models.DateField(default=timezone.now)
+    pub_date = models.DateTimeField(default=now)
     image = models.URLField()
 
     def __str__(self):

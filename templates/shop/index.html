@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block title%} MyAwesomeCart - Best Ecommerce Website{% endblock %}
+{% block title%} Vega - Buy your fav items...{% endblock %}
+
+{% block shopactive %} active {% endblock shopactive %}
 {% block css %}
 .col-md-3
 {
@@ -74,10 +76,7 @@ padding-right: 0;
                                 <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
                                 <p class="card-text">{{i.ad_titel|slice:"0:53"}}...</p>
                                 <h6 class="card-title" >Price: <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
-                                <span id="divpr{{i.id}}" class="divpr">
-                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
-                                </span>
-                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
+                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">See more</button></a>
                             </div>
                         </div>
                     </div>

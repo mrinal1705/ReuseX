@@ -8,12 +8,12 @@
 
 {% for message in messages  %}
       
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-              <strong>Message : </strong> {{ message }}
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-        </div>
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message : </strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
         
 {% endfor %}
 
@@ -30,7 +30,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="10000">
-        <img src="{% static 'img/crousal1.jpg'%}" class="d-block w-100" alt="..." width = '1400px' height = '500px'>
+        <img src="{% static 'img/crousal1.jpg' %}" class="d-block w-100" alt="..." width = '1400px' height = '500px'>
         <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>

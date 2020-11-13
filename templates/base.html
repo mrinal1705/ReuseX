@@ -10,59 +10,77 @@
 
     <title>{% block title%} {% endblock %}</title>
      <style>
-       {% block css %} {% endblock %}
+  {% block css %}
+       
+{% endblock %}
+
   </style>
   </head>
   <body>
 
+  <style>.resize {
+    width: 35px;
+    height: 35px;
+  } </style>
+
+<script src="https://kit.fontawesome.com/90c5b1c39d.js" crossorigin="anonymous"></script>
+
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-image: url(https://i.pinimg.com/originals/71/92/5c/71925c75936297af1e041e98cebfdfe6.jpg); background-size: 100%; ">
-  <a class="navbar-brand" href="/">Home</a>
+  <a class="navbar-brand" href="/"><h6></h6></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/shop" >Buy <span class="sr-only">(current)</span></a>
+      <li class="nav-item {% block homeactive %}  {% endblock homeactive %}">
+        <a class="nav-link" href="/" ><h6>Home</h6> <span class="sr-only">(current)</span></a>
+      </li>
+
+
+      <li class="nav-item {% block shopactive %}  {% endblock shopactive %}">
+        <a class="nav-link" href="/shop" ><h6>Buy</h6> <span class="sr-only">(current)</span></a>
       </li>
       
 
-      <li class="nav-item">
-        <a class="nav-link" href="/sell" >Sell</a>
+      <li class="nav-item {% block sellactive %}  {% endblock sellactive %}">
+        <a class="nav-link" href="/sell" ><h6>Sell</h6></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/about" >About</a>
+      <li class="nav-item {% block aboutactive %}  {% endblock aboutactive %}">
+        <a class="nav-link" href="/about" ><h6>About</h6></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/contact" >Contact us</a>
+      <li class="nav-item {% block contactactive %}  {% endblock contactactive %}">
+        <a class="nav-link" href="/contact" ><h6>Contact us</h6></a>
       </li>
 
 
     </ul>
     <form method='get' action='/search' class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="query" id="query">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control sm-2 " type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+      <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+      
     </form>
     {% if user.is_authenticated %}
       <ul class="navbar-nav mr-2">
+        <img class="resize ml-2 my-auto" src="/static/img/men1.png" alt="user">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/logout">Logout</a>
+          
+          <a class="nav-link dropdown-toggle"  href='#' id="navbarDropdown" role="button" data-toggle="dropdown">{{request.user}}</a>
+            <div class="dropdown-menu mr-2" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item " href="/logout">Logout</a>
             </div>
         </li>
       </ul>
       </div>
     {% else %}
     <!-- Button to  trigger Login modal -->
-      <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#loginModal">
+      <button type="button" class="btn btn-primary ml-2 mr-2" data-toggle="modal" data-target="#loginModal">
         Login
       </button>
 
-      <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal">
+      <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#signupModal">
         SignUp
       </button>
       {% endif %}

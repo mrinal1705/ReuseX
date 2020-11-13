@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title%} Vega - Sell page.. {% endblock %}
+{% block sellactive %} active {% endblock sellactive %}
 {% block body %}
 
 {% for message in messages  %}
@@ -14,8 +15,10 @@
 {% endfor %}
 
 
+{% if user.is_authenticated %}
 
 <div class="center" style="margin-left: 400px; margin-right: 400px;">
+  
     <form method="post" action="/sell" id="trackerForm" enctype="multipart/form-data">{% csrf_token %}
        <div class="col my-4">
           <h2>Choose a catogery</h2>
@@ -90,8 +93,27 @@
 
             <br>
         </form>
+        {% else %}
+        <div class="container">
+          <h1><span class="badge badge-pill badge-warning my-5">NO ACCOUNT YET !</span></h1>
+          <br>
+            <h3>Simply register as an user of Vega. We immediately open an account for you</h3>
+            <br>
+            
+            <h4>Please login to Continue ;) </h4>
+
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+        {% endif %}
         
       </div>
+      
     </div>
    </div>
   </div>
