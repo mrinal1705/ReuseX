@@ -16,6 +16,7 @@ class Product(models.Model):
     phone = models.CharField(max_length=70, default="")
     pub_date = models.DateTimeField(default=now)
     image = models.URLField()
+    popularity = models.IntegerField(default=0)
 
     def __str__(self):
         return self.ad_titel
