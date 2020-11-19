@@ -29,13 +29,8 @@ def productview(request, myid):
 
     # Fetch the product using the id
     product = Product.objects.filter(id=myid).first()
-    
-    
-
     product.popularity += 1
     product.save()
-    
-    
     
     return render(request, 'shop/prodview.html', {'product':product})
 

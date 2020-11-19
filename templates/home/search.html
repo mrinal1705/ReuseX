@@ -15,8 +15,8 @@
     background-color: blue;
     }
     .col-md-3 img{
-    width: 170px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
     }
     body .carousel-indicator li{
     background-color: blue;
@@ -25,8 +25,6 @@
     bottom: -40px;
     }
     .carousel-indicators li {
-    
-    
         background-color: #7270fc;
     }
     body .carousel-control-prev-icon,
@@ -96,7 +94,7 @@
 <div class="container">
     <!--Slideshow starts here -->
     {% for product, range, nSlides in allProds %}
-    <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
+    <h3 class="my-4 ml-4" style="color: rgb(8, 28, 53)"><b>{{product.0.category}}</b></h3>
     <div class="row">
         <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
             <ul class="carousel-indicators">
@@ -110,15 +108,12 @@
                     {% for i in product %}
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="card align-items-center" style="width: 18rem;">
-                            <img src='{{i.image}}' class="card-img-top" alt="...">
+                            <a href="/shop/products/{{i.id}}"><img src='{{i.image}}' class="card-img-top" alt="..."></a>
                             <div class="card-body">
                                 <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
-                                <p class="card-text">{{i.ad_titel|slice:"0:53"}}...</p>
-                                <h6 class="card-title" >Price: <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
-                                <span id="divpr{{i.id}}" class="divpr">
-                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
-                                </span>
-                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
+                                <p class="card-text text-center">{{i.ad_titel|slice:"0:30"}}...</p>
+                                <h6 class="card-title text-center" >₹ <span id="pricepr{{i.id}}"><b>{{i.price}}</b></span></h6>
+                                
                             </div>
                         </div>
                     </div>

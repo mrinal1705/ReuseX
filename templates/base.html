@@ -3,6 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -16,17 +17,26 @@
 
   </style>
   </head>
-  <body>
+  <body class="bg-light">
 
   <style>.resize {
     width: 35px;
     height: 35px;
-  } </style>
+  }
+  .resize3 {
+    width: 90px;
+    height: 20px;
+  }
+  
+  
+  </style>
 
+
+<!-- <img class="resize3" src="/static/img/logo1.png" alt="user"> -->
 <script src="https://kit.fontawesome.com/90c5b1c39d.js" crossorigin="anonymous"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-image: url(https://i.pinimg.com/originals/71/92/5c/71925c75936297af1e041e98cebfdfe6.jpg); background-size: 100%; ">
-  <a class="navbar-brand" href="/"><h6></h6></a>
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-image: url(https://www.wallpapertip.com/wmimgs/1-11024_ios-11-wallpaper-iphone-dark-gradient-background.jpg); background-size: 100%; ">
+  <a class="navbar-brand" href="/"><img class="resize3" src="/static/img/logo2_nav.png" alt="logo"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -34,17 +44,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {% block homeactive %}  {% endblock homeactive %}">
-        <a class="nav-link" href="/" ><h6>Home</h6> <span class="sr-only">(current)</span></a>
+        <a class="nav-link my-auto" href="/" ><h6>Home</h6> <span class="sr-only"></span></a>
       </li>
 
 
       <li class="nav-item {% block shopactive %}  {% endblock shopactive %}">
-        <a class="nav-link" href="/shop" ><h6>Buy</h6> <span class="sr-only">(current)</span></a>
+        <a class="nav-link my-auto" href="/shop" ><h6>Buy</h6> <span class="sr-only"></span></a>
       </li>
       
 
       <li class="nav-item {% block sellactive %}  {% endblock sellactive %}">
-        <a class="nav-link" href="/sell" ><h6>Sell</h6></a>
+        <a class="nav-link my-auto" href="/sell" ><h6>Sell</h6></a>
       </li>
 
       <li class="nav-item {% block aboutactive %}  {% endblock aboutactive %}">
@@ -52,7 +62,7 @@
       </li>
 
       <li class="nav-item {% block contactactive %}  {% endblock contactactive %}">
-        <a class="nav-link" href="/contact" ><h6>Contact us</h6></a>
+        <a class="nav-link my-auto" href="/contact" ><h6>Contact us</h6></a>
       </li>
 
 
@@ -139,8 +149,7 @@
 </div>
 
 
-
-
+  
 
 
 
@@ -210,10 +219,9 @@
       <div class="col-md-4 mx-auto">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: White">Footer Content</h5>
-        <p style="color: White">Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: White"><img class="resize3" src="/static/img/logo2_nav.png" alt="logo"></h5>
+        <p style="color: White"><b>Want to see your stuff here?</b><br>
+          Make some extra cash by selling things in your community. Go on, it's quick and easy.<br><a href='/sell'> click here!</a></p>
 
       </div>
       <!-- Grid column -->
@@ -224,14 +232,8 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: White">Links</h5>
+        <a href="#!" style="color: White"><h5 class="font-weight  mt-3 mb-4" style="color: White">Privacy Policies</h5></a>
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" style="color: White">Privacy Policy</a>
-          </li>
-          
-        </ul>
 
       </div>
       <!-- Grid column -->
@@ -240,43 +242,25 @@
 
       <!-- Grid column -->
       <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 " style="color: White">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="/contact" style="color: White">Contact us</a>
-          </li>
-          
-        </ul>
-
+        <a href="/contact" style="color: White"><h5 class="font-weight mt-3 mb-4 " style="color: White">Connect with us</h5></a>
       </div>
       <!-- Grid column -->
 
       <hr class="clearfix w-100 d-md-none">
 
-      <!-- Grid column -->
+      
       <div class="col-md-2 mx-auto">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: White">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="/about" style="color: White">About us</a>
-          </li>
-          
-        </ul>
+        
+        <a href="/about" style="color: White"><h5 class="font-weight  mt-3 mb-4" style="color: White">About us</h5></a>
 
       </div>
-      <!-- Grid column -->
+      
 
     </div>
-    <!-- Grid row -->
+    
 
   </div>
-  <!-- Footer Links -->
 
   <hr>
 
@@ -341,10 +325,10 @@
   <!-- Social buttons -->
   <ul class="list-unstyled list-inline text-center">
     <li class="list-inline-item">
-      <a href="#" class="fa fa-facebook"></a>
+      <a href="https://www.facebook.com/mrinal.ghoshal.7" class="fa fa-facebook"></a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="fa fa-twitter"></a>
+      <a href="https://twitter.com/Mrinal88845952" class="fa fa-twitter"></a>
     </li>
     <li class="list-inline-item">
       <a href="#" class="fa fa-google"></a>
@@ -353,7 +337,7 @@
       <a href= "https://www.linkedin.com/in/mrinal-ghoshal-71bb8b187/" class="fa fa-linkedin"></a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="fa fa-instagram"></a>
+      <a href="https://www.instagram.com/this_ismrinal/" class="fa fa-instagram"></a>
     </li>
     
   </ul>
@@ -362,6 +346,7 @@
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3 " style="color: White" >© 2020 Copyright:
   </div>
+
   <!-- Copyright -->
 
 </footer>

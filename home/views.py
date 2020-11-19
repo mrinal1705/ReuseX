@@ -8,8 +8,13 @@ from django.contrib.auth  import authenticate,  login, logout
 from blog.models import Post
 from shop.models import Product
 
-def home(request): 
-    return render(request, "home/home.html")
+def home(request):
+    allPosts = Product.objects.all().order_by('-popularity')[:12]
+    context = {'allPosts':allPosts}
+    #print(context)
+    return render(request,'home/home.html',context)
+
+
 
 def contact(request):
     if request.method=="POST":

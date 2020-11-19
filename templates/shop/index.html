@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title%} Vega - Buy your fav items...{% endblock %}
+{% block title%} ReuseX - Buy your fav items...{% endblock %}
 
 {% block shopactive %} active {% endblock shopactive %}
 {% block css %}
@@ -12,8 +12,8 @@ margin-left:-4px;
 background-color: blue;
 }
 .col-md-3 img{
-width: 170px;
-height: 200px;
+width: 250px;
+height: 300px;
 }
 body .carousel-indicator li{
 background-color: blue;
@@ -40,6 +40,115 @@ body .no-padding{
 padding-left: 0,
 padding-right: 0;
 }
+#rig {
+    max-width:900px;
+    margin:0 auto; /*center aligned*/
+    padding:0;
+    font-size:0; /* Remember to change it back to normal font size if have captions */
+    list-style:none;
+    background-color:#000;
+}
+#rig li {
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width:25%;
+    vertical-align:middle;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+        
+/* The wrapper for each item */
+.rig-cell {
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
+}
+        
+/* If have the image layer */
+.rig-img {
+    display:block;
+    width: 100%;
+    height: auto;
+    border:none;
+    transform:scale(1);
+    transition:all 1s;
+}
+
+#rig li:hover .rig-img {
+    transform:scale(1.05);
+}
+        
+/* If have the overlay layer */
+.rig-overlay {
+    position: absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #3DC0F1 url(img/link.png) no-repeat center 20%;
+    background-size:50px 50px;
+    opacity:0;
+    filter:alpha(opacity=0);/*For IE6 - IE8*/
+    transition:all 0.6s;
+}
+#rig li:hover .rig-overlay {
+    opacity:0.8;
+}
+
+/* If have captions */
+.rig-text {
+    display:block;
+    padding:0 30px;
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    width:100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size:18px;
+    font-weight:bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal!important;
+    top:40%;
+    color:white;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+#rig li:hover .rig-text {
+    transform:translateY(0px);
+    opacity:0.9;
+}
+
+@media (max-width: 9000px) {
+    #rig li {
+        width:25%;
+    }
+}
+
+@media (max-width: 700px) {
+    #rig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    #rig li {
+        width:50%;
+    }
+}
+
+.w3-myfont {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
 {% endblock %}
 {% block body %}
 
@@ -54,10 +163,96 @@ padding-right: 0;
       </div>
 {% endfor %}
 {% load static %}
+
+<div class = 'container '>
+
+<div style="font-size:8vw; " class = ' text-center my-4'>
+
+
+<div class="jumbotron " style="background-image: url(https://media.istockphoto.com/photos/dark-blue-wallpaper-texture-picture-id898359138?k=6&m=898359138&s=170667a&w=0&h=2_iaPc51_wZS-eaeaflLkluAmU3WPKV4GIZuQn1hJ1s=); background-size: 100%; ">
+    <div class = 'text-center my-4'>
+      <b><h1 class="display-4" style="color: rgb(255, 255, 255);font-size:5vw;"><b>Lot of products to Explore!</b></h1></b>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<ul id="rig">
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img " src="/static/img/mobile and laptops.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Mobile and Laptops</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/fashion.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Fashion</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/Electronic-Gadgets.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Elecrtonics and Appliances</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/musical.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Musical Sports and Gym materials</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/studymaterials.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Study materials</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/apartments.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Apartments and rooms</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/bikes.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Bikes and Other vechiels</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="/static/img/furniture.jpg">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Furniture</span>
+        </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <!--Slideshow starts here -->
     {% for product, range, nSlides in allProds %}
-    <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
+    <h3 class="my-4 ml-4" style="color: rgb(8, 28, 53)"><b>{{product.0.category}}</b></h3>
     <div class="row">
         <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
             <ul class="carousel-indicators">
@@ -71,12 +266,10 @@ padding-right: 0;
                     {% for i in product %}
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="card align-items-center" style="width: 18rem;">
-                            <img src='{{i.image}}' class="card-img-top" alt="...">
+                            <a href="/shop/products/{{i.id}}"><img src='{{i.image}}' class="card-img-top" alt="..."></a>
                             <div class="card-body">
-                                <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
-                                <p class="card-text">{{i.ad_titel|slice:"0:53"}}...</p>
-                                <h6 class="card-title" >Price: <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
-                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">See more</button></a>
+                                <h6 class="card-tex text-center">{{i.ad_titel|slice:"0:30"}}</h6>
+                                <h5 class="card-title text-center"><span id=""><b>₹{{i.price}}</b></span></h5>
                             </div>
                         </div>
                     </div>

@@ -28,18 +28,17 @@
       </div>
         {% endfor %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <div class="py-5 text-center">
+  <div class="my-5 text-center">
   <!--    <img class="d-block mx-auto mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
       <h2>Contact Us</h2>
-      <i class="material-icons " style="font-size: 100px;color:lightblue;">favorite</i>
+      <i class="material-icons " style="font-size: 100px;color:rgb(159, 95, 233);">favorite</i>
       <h4>Let us know how can we make your exprience better</h4>
   </div>
   
   
-  <div class="center" style="margin-left: 400px; margin-right:400px;" >
+  <div class="center"  >
       <div class="row">
       <div class="container my-3">
-  <!--    <h3>Contact Us</h3>-->
           <form action="/contact" method="post">{% csrf_token %}
         <div class="form-group">
           <label for="name">Name</label>

@@ -1,10 +1,99 @@
 {% extends 'base.html' %}
 
-{% block title%}Vega - Free classifieds in Kolkata, Buy and Sell for free!{% endblock %}
+{% block title%}ReuseX - Free classifieds in Kolkata, Buy and Sell for free!{% endblock %}
 
 {% block homeactive %} active {% endblock homeactive %}
+{% load humanize %}
+
 
 {% block body %}
+
+
+<style>
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+ }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 1rem; 
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
+
+.gallery__item--1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.gallery__item--2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+.gallery__item--3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.gallery__item--4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.gallery__item--5 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.gallery__item--6 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+.image-cropper {
+    width: 250px;
+    height: 250px;
+    /* position: relative; */
+    overflow: hidden;
+    border-radius: 50%;
+}
+.profile-pic {
+  display: inline;
+  margin: auto;
+  /* margin-left: -25%; //centers the image */
+  height: 100%;
+  width: auto;
+}
+</style>
+
 
 {% for message in messages  %}
       
@@ -30,24 +119,24 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="10000">
-        <img src="{% static 'img/crousal1.jpg' %}" class="d-block w-100" alt="..." width = '1400px' height = '500px'>
+        <img src="/static/img/crousal1.jpg" class="d-block w-100" alt="..." width = '1400px' height = '600px'>
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5></h5>
+          <p></p>
         </div>
       </div>
       <div class="carousel-item" data-interval="2000">
-        <img src="{% static 'img/img4.jpg' %}" class="d-block w-100" alt="..." width = '1400px' height = '500px'>
+        <img src="/static/img/img4.jpg" class="d-block w-100" alt="..." width = '1400px' height = '600px'>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5></h5>
+          <p></p>
         </div>
       </div>
       <div class="carousel-item" >
-        <img src="{% static 'img/test4.jpg' %}" class="d-block w-100" alt="..." width = '1400px' height = '500px'>
+        <img src="/static/img/img3.jpg" class="d-block w-100" alt="..." width = '1400px' height = '600px'>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h5></h5>
+          <p></p>
         </div>
       </div>
     </div>
@@ -61,21 +150,92 @@
     </a>
   </div>
 
-  <div class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80); background-size: 100%; ">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4" style="color: White">BUY, SELL AND FIND JUST ABOUT ANYTHING</h1>
-      <p class="lead my-3 " style="color: White">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+  <div class="jumbotron" style="background-image: url(https://media.istockphoto.com/photos/dark-blue-wallpaper-texture-picture-id898359138?k=6&m=898359138&s=170667a&w=0&h=2_iaPc51_wZS-eaeaflLkluAmU3WPKV4GIZuQn1hJ1s=); background-size: 100%; ">
+    <div class = 'row'>
+    <div class="col-md-6 ">
+      <p class="display-4" style="color: White">BUY, SELL AND FIND JUST ABOUT ANYTHING</p>
+      <p class="lead my-3 " style="color: White">ReuseX is a platform that lets you buy or sell anything on the platform. Anything and everything can be listed on the platform. </p>
+      <p class="lead mb-0"><a href="/about" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+
+    <div class="col-md-5">
+      <img src="/static/img/logo1.png"  width="400px" height="385px" alt="logo" style="float:right">
     </div>
   </div>
-
-
-
-
-  <div class="container">
-    <h2>Trending Products</h2>
-
   </div>
 
+  
+  <div class="container text-center">
+    <h1 style="font-size:8vw">Trending Products<img src="/static/img/trending.png" width="230px" height="225px" ></h1>
+  </div>
+    
+      
+  
+  <div class="container">
+    <div class="gallery">
+        <figure class="gallery__item gallery__item--1">
+      
+          <a href="/shop/products/{{allPosts.0.id}}"><img src="{{allPosts.0.image}}" alt="Gallery image 1" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+        
+        </figure>
+        
+        <figure class="gallery__item gallery__item--2">
+          
+          <a href="/shop/products/{{allPosts.1.id}}"><img src="{{allPosts.1.image}}" alt="Gallery image 2" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+          
+        </figure>
+        <figure class="gallery__item gallery__item--4">
+          <a href="/shop/products/{{allPosts.2.id}}"><img src="{{allPosts.2.image}}" alt="Gallery image 3" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+        </figure>
+        <figure class="gallery__item gallery__item--5">
+          <a href="/shop/products/{{allPosts.3.id}}"><img src="{{allPosts.3.image}}" alt="Gallery image 4" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+        </figure>
+        <figure class="gallery__item gallery__item--3">
+          <a href="/shop/products/{{allPosts.4.id}}"><img src="{{allPosts.4.image}}" alt="Gallery image 5" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+        </figure>
+        <figure class="gallery__item gallery__item--6">
+            <a href="/shop/products/{{allPosts.5.id}}"><img src="{{allPosts.5.image}}" alt="Gallery image 6" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+        </figure>
+        
+    </div>
 
+    <div class="gallery">
+      <figure class="gallery__item gallery__item--2">
+        <a href="/shop/products/{{allPosts.6.id}}"><img src="{{allPosts.6.image}}" alt="Gallery image 1" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      <figure class="gallery__item gallery__item--1">
+        <a href="/shop/products/{{allPosts.7.id}}"><img src="{{allPosts.7.image}}" alt="Gallery image 2" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      <figure class="gallery__item gallery__item--4">
+        <a href="/shop/products/{{allPosts.8.id}}"><img src="{{allPosts.8.image}}" alt="Gallery image 3" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      <figure class="gallery__item gallery__item--3">
+        <a href="/shop/products/{{allPosts.9.id}}"><img src="{{allPosts.9.image}}" alt="Gallery image 4" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      <figure class="gallery__item gallery__item--5">
+        <a href="/shop/products/{{allPosts.10.id}}"><img src="{{allPosts.10.image}}" alt="Gallery image 5" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      <figure class="gallery__item gallery__item--6">
+        <a href="/shop/products/{{allPosts.11.id}}"><img src="{{allPosts.11.image}}" alt="Gallery image 6" class="gallery__img row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"></a>
+      </figure>
+      
+    </div>
+  </div> 
+</div>
+
+<div class="jumbotron" style="background-image: url(https://media.istockphoto.com/photos/dark-blue-wallpaper-texture-picture-id898359138?k=6&m=898359138&s=170667a&w=0&h=2_iaPc51_wZS-eaeaflLkluAmU3WPKV4GIZuQn1hJ1s=); background-size: 100%; ">
+  <div class="text-center">
+    <p class="display-4" style="color: White">Site Developer</p>
+    
+    <div class=" image-cropper ">
+
+      <img src="https://scontent.fpat3-2.fna.fbcdn.net/v/t1.0-9/33920305_1247975988665613_8954629138505793536_o.jpg?_nc_cat=107&ccb=2&_nc_sid=09cbfe&_nc_ohc=yHY0hwAzHXAAX82cU9i&_nc_ht=scontent.fpat3-2.fna&oh=28a10096bc68bbbe0e1e5f65e7bfe616&oe=5FDC63A7" 
+      alt="avatar" class="profile-pic ">
+  
+    </div>
+
+    
+  </div>
+
+</div>
 {% endblock %}
