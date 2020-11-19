@@ -78,26 +78,13 @@ div.polaroid {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
-.image-cropper {
-    width: 250px;
-    height: 250px;
-    /* position: relative; */
-    overflow: hidden;
-    border-radius: 50%;
-}
-.profile-pic {
-  display: inline;
-  margin: auto;
-  /* margin-left: -25%; //centers the image */
-  height: 100%;
-  width: auto;
-}
+
 </style>
 
 
 {% for message in messages  %}
       
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-0" role="alert">
       <strong>Message : </strong> {{ message }}
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -223,18 +210,12 @@ div.polaroid {
   </div> 
 </div>
 
-<div class="jumbotron" style="background-image: url(https://media.istockphoto.com/photos/dark-blue-wallpaper-texture-picture-id898359138?k=6&m=898359138&s=170667a&w=0&h=2_iaPc51_wZS-eaeaflLkluAmU3WPKV4GIZuQn1hJ1s=); background-size: 100%; ">
+<div class="jumbotron mb-0" style="background-image: url(https://images.unsplash.com/photo-1579547944064-0180251f94c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60); background-size: 100%; ">
   <div class="text-center">
-    <p class="display-4" style="color: White">Site Developer</p>
-    
-    <div class=" image-cropper ">
-
-      <img src="https://scontent.fpat3-2.fna.fbcdn.net/v/t1.0-9/33920305_1247975988665613_8954629138505793536_o.jpg?_nc_cat=107&ccb=2&_nc_sid=09cbfe&_nc_ohc=yHY0hwAzHXAAX82cU9i&_nc_ht=scontent.fpat3-2.fna&oh=28a10096bc68bbbe0e1e5f65e7bfe616&oe=5FDC63A7" 
-      alt="avatar" class="profile-pic ">
-  
-    </div>
-
-    
+    <p class="display-4" style="color: White"><b>Site Developer</b></p>
+    <img src="/static/img/circle-cropped (1).png" width="170px" height="170px" >
+    <h5 class="my-2" style="color: White">Mrinal Ghoshal</h5>
+    <p class="my-1" style="color: White">B.tech - ECE - 2k17</p>  
   </div>
 
 </div>
